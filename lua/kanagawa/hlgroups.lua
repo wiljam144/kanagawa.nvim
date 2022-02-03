@@ -7,9 +7,9 @@ function M.setup(colors, config)
     config = vim.tbl_extend("force", require("kanagawa").config, config or {})
 
     local hlgroups = {
-        Comment                           = { fg = colors.fg_comment, style = config.commentStyle },
+        Comment                           = { fg = colors.fg_comment,  unpack(config.commentStyle) },
         ColorColumn                       = { bg = colors.bg_light0 },
-        Conceal                           = { fg = colors.bg_light3, bg = "NONE", style = "bold" },
+        Conceal                           = { fg = colors.bg_light3, bg = "NONE",  bold = true },
         Cursor                            = { fg = colors.bg, bg = colors.fg },
         lCursor                           = { link = "Cursor" },
         CursorIM                          = { link = "Cursor" },
@@ -18,25 +18,25 @@ function M.setup(colors, config)
         Directory                         = { fg = colors.fn },
         DiffAdd                           = { fg = "NONE", bg = colors.diff.add },
         DiffChange                        = { fg = "NONE", bg = colors.diff.change },
-        DiffDelete                        = { fg = colors.git.removed, bg = colors.diff.delete, style = 'none' },
+        DiffDelete                        = { fg = colors.git.removed, bg = colors.diff.delete,},
         DiffText                          = { fg = "NONE", bg = colors.diff.text },
         EndOfBuffer                       = { fg = colors.bg },
         -- TermCursor                     = {},
         -- TermCursorNC                   = {},
         ErrorMsg                          = { fg = colors.diag.error, bg = "NONE" },
-        VertSplit                         = { fg = colors.bg_status, bg = colors.bg_status, style = "NONE" },
+        VertSplit                         = { fg = colors.bg_status, bg = colors.bg_status, },
         Folded                            = { fg = colors.bg_light3, bg = colors.bg_light0 },
         FoldColumn                        = { fg = colors.bg_light2, bg = "NONE" },
         SignColumn                        = { fg = colors.bg_light2, bg = "NONE" },
         SignColumnSB                      = { link = "SignColumn" },
         Substitute                        = { fg = colors.fg, bg = colors.git.removed },
         LineNr                            = { fg = colors.bg_light2 },
-        CursorLineNr                      = { fg = colors.diag.warning, bg = "NONE", style = "bold" },
-        MatchParen                        = { fg = colors.diag.warning, bg = "NONE", style = "bold" },
-        ModeMsg                           = { fg = colors.diag.warning, style = "bold", bg = "NONE" },
+        CursorLineNr                      = { fg = colors.diag.warning, bg = "NONE",  bold = true },
+        MatchParen                        = { fg = colors.diag.warning, bg = "NONE",  bold = true },
+        ModeMsg                           = { fg = colors.diag.warning,  bold = true, bg = "NONE" },
         MsgArea                           = { fg = colors.fg_dark, bg = "NONE" },
         -- MsgSeparator                   = {},
-        MoreMsg                           = { fg = colors.diag.info, bg = colors.bg, style = "NONE" },
+        MoreMsg                           = { fg = colors.diag.info, bg = colors.bg,  },
         NonText                           = { fg = colors.bg_light2 },
         Normal                            = { fg = colors.fg, bg = not config.transparent and colors.bg or "NONE" },
         NormalNC                          = config.dimInactive and { fg = colors.fg_dark, bg = colors.bg_dim } or { link = "Normal" },
@@ -50,18 +50,18 @@ function M.setup(colors, config)
         Question                          = { link = "MoreMsg" },
         QuickFixLine                      = { link = "CursorLine" },
         Search                            = { fg = colors.fg, bg = colors.bg_search },
-        IncSearch                         = { fg = colors.bg_visual, bg = colors.diag.warning, style = "NONE" },
+        IncSearch                         = { fg = colors.bg_visual, bg = colors.diag.warning,  },
         SpecialKey                        = { link = "NonText" },
-        SpellBad                          = { style = "undercurl", guisp = colors.diag.error },
-        SpellCap                          = { style = "undercurl", guisp = colors.diag.warning },
-        SpellLocal                        = { style = "undercurl", guisp = colors.diag.warning },
-        SpellRare                         = { style = "undercurl", guisp = colors.diag.warning },
-        StatusLine                        = { fg = colors.fg_dark, bg = colors.bg_status, style = "NONE" },
-        StatusLineNC                      = { fg = colors.fg_comment, bg = colors.bg_status, style = "NONE" },
-        TabLine                           = { bg = colors.bg_dark, fg = colors.bg_light3, style = "NONE" },
-        TabLineFill                       = { bg = colors.bg, style = "NONE" },
-        TabLineSel                        = { fg = colors.fg_dark, bg = colors.bg_light1, style = "NONE" },
-        Title                             = { fg = colors.fn, style = "bold" },
+        SpellBad                          = {  undercurl = true, sp = colors.diag.error },
+        SpellCap                          = {  undercurl = true, sp = colors.diag.warning },
+        SpellLocal                        = {  undercurl = true, sp = colors.diag.warning },
+        SpellRare                         = {  undercurl = true, sp = colors.diag.warning },
+        StatusLine                        = { fg = colors.fg_dark, bg = colors.bg_status,  },
+        StatusLineNC                      = { fg = colors.fg_comment, bg = colors.bg_status,  },
+        TabLine                           = { bg = colors.bg_dark, fg = colors.bg_light3,  },
+        TabLineFill                       = { bg = colors.bg,  },
+        TabLineSel                        = { fg = colors.fg_dark, bg = colors.bg_light1,  },
+        Title                             = { fg = colors.fn,  bold = true },
         Visual                            = { bg = colors.bg_visual },
         VisualNOS                         = { link = "Visual" },
         WarningMsg                        = { fg = colors.diag.warning, bg='NONE'},
@@ -72,17 +72,17 @@ function M.setup(colors, config)
         String                            = { fg = colors.st },
         Character                         = { link = "String" },
         Number                            = { fg = colors.nu },
-        Boolean                           = { fg = colors.co, style = "bold" },
+        Boolean                           = { fg = colors.co,  bold = true },
         Float                             = { link = "Number" },
 
         Identifier                        = { fg = colors.id },
-        Function                          = { fg = colors.fn, style = config.functionStyle },
-        Statement                         = { fg = colors.sm, style = config.statementStyle },
+        Function                          = { fg = colors.fn,  unpack(config.functionStyle) },
+        Statement                         = { fg = colors.sm,  unpack(config.statementStyle) },
         -- Conditional                    = {},
         -- Repeat                         = {},
         -- Label                          = { link = 'Statement' }, --TODO: check default
         Operator                          = { fg = colors.op },
-        Keyword                           = { fg = colors.kw, style = config.keywordStyle },
+        Keyword                           = { fg = colors.kw,  unpack(config.keywordStyle) },
         Exception                         = { fg = colors.sp2 },
 
         PreProc                           = { fg = colors.pp },
@@ -91,7 +91,7 @@ function M.setup(colors, config)
         -- Macro                          = {},
         -- PreCondit                      = {},
 
-        Type                              = { fg = colors.ty, style = config.typeStyle },
+        Type                              = { fg = colors.ty,  unpack(config.typeStyle) },
         -- StorageClass                   = {},
         -- Structure                      = {},
         -- Typedef                        = {},
@@ -103,14 +103,14 @@ function M.setup(colors, config)
         -- SpecialComment                 = {},
         -- Debug                          = {},
 
-        Underlined                        = { fg = colors.sp, style = "underline" },
-        Bold                              = { style = "bold" },
-        Italic                            = { style = "italic" },
+        Underlined                        = { fg = colors.sp,  underline = true },
+        Bold                              = {  bold = true },
+        Italic                            = {  italic = true },
 
         Ignore                            = { link = 'NonText'},
 
         Error                             = { fg = colors.diag.error, bg = "NONE" },
-        Todo                              = { fg = colors.fg_reverse, bg = colors.diag.info, style = "bold" },
+        Todo                              = { fg = colors.fg_reverse, bg = colors.diag.info,  bold = true },
 
         qfLineNr                          = { link = "lineNr" },
         qfFileName                        = { link = "Directory" },
@@ -154,10 +154,10 @@ function M.setup(colors, config)
         DiagnosticVirtualTextInfo         = { link = "DiagnosticInfo" },
         DiagnosticVirtualTextHint         = { link = "DiagnosticHint" },
 
-        DiagnosticUnderlineError          = { style = "undercurl", guisp = colors.diag.error },
-        DiagnosticUnderlineWarn           = { style = "undercurl", guisp = colors.diag.warning },
-        DiagnosticUnderlineInfo           = { style = "undercurl", guisp = colors.diag.info },
-        DiagnosticUnderlineHint           = { style = "undercurl", guisp = colors.diag.hint },
+        DiagnosticUnderlineError          = {  undercurl = true, sp = colors.diag.error },
+        DiagnosticUnderlineWarn           = {  undercurl = true, sp = colors.diag.warning },
+        DiagnosticUnderlineInfo           = {  undercurl = true, sp = colors.diag.info },
+        DiagnosticUnderlineHint           = {  undercurl = true, sp = colors.diag.hint },
 
         LspSignatureActiveParameter       = { fg = colors.diag.warning },
         LspCodeLens                       = { fg = colors.fg_comment },
@@ -170,7 +170,7 @@ function M.setup(colors, config)
         -- TSBoolean                      = {},
         -- TSCharacter                    = {},
         -- TSComment                      = {},
-        -- TSNote                         = { fg = c.fg_dark, bg = c.diag.hint, style = 'nocombine,bold'}, -- links to SpecialComment -> Special
+        -- TSNote                         = { fg = c.fg_dark, bg = c.diag.hint,  'nocombine,bold'}, -- links to SpecialComment -> Special
         TSWarning                         = { link = "Todo" }, --default
         TSDanger                          = { link = "WarningMsg" }, --default
         TSConstructor                     = { fg = colors.kw }, -- Function/Special/Statement/Keyword
@@ -180,7 +180,7 @@ function M.setup(colors, config)
         -- TSConstMacro                   = {},
         TSError                           = { fg = colors.diag.error },
         -- TSException                    = { link = 'Exception' }, -- default, -> statement
-        TSException                       = { fg = config.specialException and colors.sp3 or colors.sm, style = config.statementStyle },
+        TSException                       = { fg = config.specialException and colors.sp3 or colors.sm,  unpack(config.statementStyle) },
         TSField                           = { link = "Identifier" }, -- default
         -- TSField                        = { link = 'Variable'},
         -- TSFloat                        = {},
@@ -191,14 +191,14 @@ function M.setup(colors, config)
         TSKeyword                         = { link = "Keyword" },
         -- TSKeywordFunction              = { link = "Keyword" }, -- default
         -- TSKeywordFunction              = { link = "Function" },
-        TSKeywordReturn                   = { fg = config.specialReturn and colors.sp3 or colors.kw, style = config.keywordStyle },
+        TSKeywordReturn                   = { fg = config.specialReturn and colors.sp3 or colors.kw,  unpack(config.keywordStyle) },
         TSLabel                           = { link = "Label" },
         TSMethod                          = { link = "Function" },
         -- TSNamespace                    = {},
         -- TSNone                         = {},
         -- TSNumber                       = {},
         TSOperator                        = { link = "Operator" },
-        TSKeywordOperator                 = { fg = colors.op, style = 'bold' },
+        TSKeywordOperator                 = { fg = colors.op,  bold = true },
         TSParameter                       = { link = "Identifier" }, -- default
         -- TSParameterReference           = {},
         TSProperty                        = { link = "Identifier" }, -- default
@@ -209,12 +209,12 @@ function M.setup(colors, config)
         -- TSRepeat                       = {},
         -- TSString                       = {},
         TSStringRegex                     = { fg = colors.re },
-        TSStringEscape                    = { fg = colors.re, style = "bold" },
+        TSStringEscape                    = { fg = colors.re,  bold = true },
         -- TSSymbol                       = {},
         -- TSType                         = {},
         -- TSTypeBuiltin                  = {},
         TSVariable                        = { fg = "NONE" },
-        TSVariableBuiltin                 = { fg = colors.sp2, style = config.variablebuiltinStyle },
+        TSVariableBuiltin                 = { fg = colors.sp2,  unpack(config.variablebuiltinStyle) },
 
         -- TSTag                          = {},
         -- TSTagDelimiter                 = {},
@@ -276,7 +276,7 @@ function M.setup(colors, config)
         -- NvimTree                       = {},
         NvimTreeNormal                    = { link = "Normal"},
         NvimTreeNormalNC                  = { link = "NormalNC"},
-        NvimTreeRootFolder                = { fg = colors.id, style = "bold" },
+        NvimTreeRootFolder                = { fg = colors.id,  bold = true },
         NvimTreeGitDirty                  = { fg = colors.git.changed },
         NvimTreeGitNew                    = { fg = colors.git.added},
         NvimTreeGitDeleted                = { fg = colors.git.removed},
@@ -285,9 +285,9 @@ function M.setup(colors, config)
         NvimTreeImageFile                 = { fg = colors.sp2 },
         NvimTreeSymlink                   = { link = "Type" },
         NvimTreeFolderName                = { link = "Directory" },
-        NvimTreeExecFile                  = { fg = colors.springGreen, style = "bold" },
+        NvimTreeExecFile                  = { fg = colors.springGreen,  bold = true },
         NvimTreeGitStaged                 = { fg = colors.git.added },
-        NvimTreeOpenedFile                = { fg = colors.sp, style = 'italic'},
+        NvimTreeOpenedFile                = { fg = colors.sp,  italic = true},
 
         -- Fern
         -- FernBranchText                 = {},
@@ -346,7 +346,12 @@ function M.setup(colors, config)
 
         -- BufferLine
         -- BufferLineIndicatorSelected    = {},
-        -- BufferLineFill                 = {},
+        BufferLineSeparator               = { fg = colors.bg },
+        BufferLineSeparatorSelected       = { link = 'BufferLineSeparator' },
+        BufferLineSeparatorVisible        = { link = 'BufferLineSeparator' },
+        BufferLineBackground              = { bg = colors.bg_dark },
+        BufferlineBufferVisible           = { bg = colors.bg_light0 },
+        BufferlineBufferSelected          = { bg = colors.bg_light1 },
 
         -- Barbar                         = {},
         -- BufferCurrent                  = {},
@@ -384,7 +389,7 @@ function M.setup(colors, config)
         CmpDocumentationBorder            = { fg = colors.fg_border, bg = "NONE" },
 
         CmpItemAbbr                       = { fg = colors.fg, bg = "NONE" },
-        CmpItemAbbrDeprecated             = { fg = colors.fg_comment, bg = "NONE", style = "strikethrough" },
+        CmpItemAbbrDeprecated             = { fg = colors.fg_comment, bg = "NONE",  strikethrough = true },
 
         CmpItemAbbrMatch                  = { fg = colors.fn, bg = "NONE" },
         CmpItemAbbrMatchFuzzy             = { link = "CmpItemAbbrMatch" },
@@ -433,7 +438,7 @@ function M.setup(colors, config)
         IndentBlanklineSpaceChar          = { fg = colors.bg_light2 },
         IndentBlanklineSpaceCharBlankline = { fg = colors.bg_light2 },
         IndentBlanklineContextChar        = { fg = colors.bg_light3 },
-        IndentBlanklineContextStart       = { guisp = colors.bg_light3, style = "underline" },
+        IndentBlanklineContextStart       = { sp = colors.bg_light3,  underline = true },
     }
 
     for hl, specs in pairs(config.overrides) do
