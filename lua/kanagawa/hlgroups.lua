@@ -59,7 +59,7 @@ function M.setup(colors, config)
         StatusLine                        = { fg = colors.fg_dark, bg = colors.bg_status,  },
         StatusLineNC                      = { fg = colors.fg_comment, bg = colors.bg_status,  },
         TabLine                           = { bg = colors.bg_dark, fg = colors.bg_light3,  },
-        TabLineFill                       = { bg = colors.bg,  },
+        TabLineFill                       = { bg = colors.bg, fg = colors.bg },
         TabLineSel                        = { fg = colors.fg_dark, bg = colors.bg_light1,  },
         Title                             = { fg = colors.fn,  bold = true },
         Visual                            = { bg = colors.bg_visual },
@@ -389,7 +389,7 @@ function M.setup(colors, config)
         CmpDocumentationBorder            = { fg = colors.fg_border, bg = "NONE" },
 
         CmpItemAbbr                       = { fg = colors.fg, bg = "NONE" },
-        CmpItemAbbrDeprecated             = { fg = colors.fg_comment, bg = "NONE",  strikethrough = true },
+        CmpItemAbbrDeprecated             = { fg = colors.fg_comment, bg = "NONE"}, --,  strikethrough = true },
 
         CmpItemAbbrMatch                  = { fg = colors.fn, bg = "NONE" },
         CmpItemAbbrMatchFuzzy             = { link = "CmpItemAbbrMatch" },
