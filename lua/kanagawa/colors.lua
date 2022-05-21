@@ -3,9 +3,11 @@ local palette_colors = {
     -- Bg Shades
     sumiInk0      = "#16161D",
     sumiInk1b     = "#181820",
-    sumiInk1      = "#1F1F28",
+    --sumiInk1      = "#1F1F28",
+    sumiInk1      = "#121217",
     sumiInk2      = "#2A2A37",
-    sumiInk3      = "#363646",
+    --sumiInk3      = "#363646",
+    sumiInk3      = "#1b1b22",
     sumiInk4      = "#54546D",
 
     -- Popup and Floats

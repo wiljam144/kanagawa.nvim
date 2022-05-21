@@ -9,8 +9,8 @@ return {
             bg_light2 = colors.sumiInk4,
             bg_light3 = colors.springViolet1,
 
-            bg_menu = colors.waveBlue1,
-            bg_menu_sel = colors.waveBlue2,
+            bg_menu = colors.sumiInk2, --colors.waveBlue1,
+            bg_menu_sel = colors.sumiInk4, --colors.waveBlue2,
 
             bg_status = colors.sumiInk0,
             bg_visual = colors.waveBlue1,
