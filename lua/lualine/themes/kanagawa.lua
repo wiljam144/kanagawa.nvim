@@ -10,22 +10,22 @@ kanagawa.normal = {
 
 kanagawa.insert = {
   a = { bg = colors.autumnGreen, fg = colors.bg_dark },
-  b = { bg = colors.bg, fg = colors.autumnGreen },
+  b = { bg = colors.bg_light0, fg = colors.autumnGreen },
 }
 
 kanagawa.command = {
   a = { bg = colors.boatYellow2, fg = colors.bg_dark },
-  b = { bg = colors.bg, fg = colors.boatYellow2 },
+  b = { bg = colors.bg_light0, fg = colors.boatYellow2 },
 }
 
 kanagawa.visual = {
   a = { bg = colors.oniViolet, fg = colors.bg_dark },
-  b = { bg = colors.bg, fg = colors.oniViolet },
+  b = { bg = colors.bg_light0, fg = colors.oniViolet },
 }
 
 kanagawa.replace = {
   a = { bg = colors.autumnRed, fg = colors.bg_dark },
-  b = { bg = colors.bg, fg = colors.autumnRed },
+  b = { bg = colors.bg_light0, fg = colors.autumnRed },
 }
 
 kanagawa.inactive = {
